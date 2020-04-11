@@ -10,5 +10,5 @@
 `streamlit run https://github.com/Ivyw1219/Cryptocurrency_app/blob/master/cryptocurrency_app.py`
 
 ### Preview
-[App Preview](https://github.com/Ivyw1219/Cryptocurrency_app/blob/master/preview2.png)
-[App Preivew](https://github.com/Ivyw1219/Cryptocurrency_app/blob/master/preview1.png)
+![App Preview](https://github.com/Ivyw1219/Cryptocurrency_app/blob/master/preview2.png)
+![App Preivew](https://github.com/Ivyw1219/Cryptocurrency_app/blob/master/preview1.png)

@@ -105,7 +105,7 @@ def main():
 
 @st.cache
 def load_data():
-    df=pd.read_csv('/Users/ivyw/Desktop/cryptocurrency_app/cryptocurrency_data.csv')
+    df=pd.read_csv('https://raw.githubusercontent.com/Ivyw1219/Cryptocurrency_app/master/cryptocurrency_data.csv')
     cols = ['Open','Close','High','Low','Market Cap']
     for c in cols:
         df[c] = df[c].apply(lambda x:x.replace(",",""))

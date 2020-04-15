@@ -38,6 +38,8 @@ def main():
    
     
       selected_coin  = coin_selector()
+      coin_name =selected_coin.Currency.unique()
+      coin_name ="".join(coin_name)
       st.dataframe(selected_coin)
 
 
@@ -47,12 +49,12 @@ def main():
       def price_trend():
         
           fig = px.line(x = selected_coin.Date,y = selected_coin.Close,width = 1000)
-          fig.update_layout(title =' Price Trend',yaxis_title ='USD',xaxis_title ='',xaxis_tickformat = '%d %B <br>%Y')
+          fig.update_layout(title ='{} Price Trend'.format(coin_name),yaxis_title ='USD',xaxis_title ='',xaxis_tickformat = '%d %B <br>%Y')
           st.plotly_chart(fig)
 
       def marketcap_trend():
           fig = px.line(x = selected_coin.Date,y = selected_coin['Market Cap'],width = 1000)
-          fig.update_layout(title ='MarketCap Trend',yaxis_title ='USD',xaxis_title ='')
+          fig.update_layout(title ='{} MarketCap Trend'.format(coin_name),yaxis_title ='USD',xaxis_title ='')
           st.plotly_chart(fig)
 
       if st.sidebar.checkbox("Price Trend in years"):
@@ -87,15 +89,17 @@ def main():
            return data1
 
       date_selector = date_selector()
+      date_name = date_selector['Date'].unique()
+      date_name ="".join(date_name)
 
       fig = make_subplots(specs=[[{"secondary_y": True}]])
       fig.add_trace(go.Bar(x = date_selector['Currency'], y= date_selector['Open'],name = 'Open Price'),secondary_y =False)
       fig.add_trace(go.Scatter(x = date_selector['Currency'], y= date_selector['Delta'],name = 'Delta'),secondary_y =True)
-      fig.update_layout(title ='Currency Delta in any specific day ',yaxis_title ='USD',xaxis_title ='',width = 1050)
+      fig.update_layout(title ='Currency Price Change in {}'.format(date_name),yaxis_title ='USD',xaxis_title ='',width = 1050)
       fig.update_yaxes(showline=True, linewidth=3, linecolor='red')
 
       st.subheader("Notice:")
-      st.warning (" This is a multiaxes graph. The delta axis is on the right")
+      st.info (" This is a multiaxes graph. The delta axis is on the right")
       st.plotly_chart(fig)
 
 

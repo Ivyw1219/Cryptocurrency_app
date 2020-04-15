@@ -84,7 +84,7 @@ def main():
       select_date =df.iloc[::-1, :]['Date'].unique().tolist()
       def date_selector():
            date_s = st.sidebar.selectbox("Select:",select_date)
-           data1 =df[df.Date == date_s][['Currency','Open','Close']]
+           data1 =df[df.Date == date_s][['Date','Currency','Open','Close']]
            data1['Delta'] = df['Close'] - df['Open']
            return data1
 
